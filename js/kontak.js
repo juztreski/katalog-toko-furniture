@@ -3,14 +3,16 @@
 // ============================================================
 (function () {
   var pilihProduk = document.getElementById("fProduk");
-  var semuaProduk = window.PRODUCTS || [];
 
-  semuaProduk.forEach(function (p) {
-    var opsi = document.createElement("option");
-    opsi.value = p.nama;
-    opsi.textContent = p.nama + " - " + formatRupiah(p.harga);
-    pilihProduk.appendChild(opsi);
-  });
+  function isiOpsiProduk() {
+    pilihProduk.innerHTML = '<option value="">Tulis sendiri / konsultasi dulu</option>';
+    (window.PRODUCTS || []).forEach(function (p) {
+      var opsi = document.createElement("option");
+      opsi.value = p.nama;
+      opsi.textContent = p.nama + " - " + formatRupiah(p.harga);
+      pilihProduk.appendChild(opsi);
+    });
+  }
 
   document.getElementById("formOrder").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -29,4 +31,8 @@
   });
 
   document.getElementById("tahun").textContent = new Date().getFullYear();
+
+  isiOpsiProduk();
+  window.IRMA.setelahMuat(isiOpsiProduk);
+  window.IRMA.muat();
 })();

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin - Irma Furniture</title>
+  <title>Kelola Katalog - Irma Furniture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -22,121 +22,96 @@
             <path d="M9 5l-1-2M12 5V3M15 5l1-2" />
           </svg>
         </span>
-        <span class="brand-nama">Irma Furniture<small>Panel Admin</small></span>
+        <span class="brand-nama">Irma Furniture<small>Kelola Katalog</small></span>
       </a>
       <nav class="nav-links">
         <a href="index.html">Lihat Katalog</a>
         <a href="kontak.html">Kontak</a>
-        <a href="admin.html" class="aktif">Admin</a>
+        <a href="admin.html" class="aktif">Kelola</a>
       </nav>
     </div>
   </header>
 
   <main class="wadah isi-admin">
-
-    <!-- Login -->
-    <section class="login-kartu" id="kartuLogin">
-      <h2>Login Admin</h2>
-      <p>Masukkan kata sandi untuk mengelola produk.</p>
-      <div class="pesan-salah" id="pesanSalah">Kata sandi salah. Silakan coba lagi.</div>
-      <form id="formLogin">
-        <input type="password" id="inputPassword" placeholder="Kata sandi" autocomplete="current-password" />
-        <button type="submit" class="btn btn-utama">Masuk</button>
-      </form>
-    </section>
-
-    <!-- Panel -->
-    <section id="panelAdmin" style="display:none;">
-      <div class="kepala-admin">
-        <h1>Kelola Produk</h1>
-        <div class="tombol-pakai">
-          <button type="button" class="btn btn-utama" id="btnTambah">+ Tambah Produk</button>
-          <button type="button" class="btn btn-garis" id="btnDownload">Download products.js</button>
-          <button type="button" class="btn btn-garis btn-kecil" id="btnKeluar">Keluar</button>
-        </div>
+    <div class="kepala-admin">
+      <h1>Kelola Katalog</h1>
+      <div class="tombol-pakai">
+        <a id="linkSheet" class="btn btn-utama" href="#" target="_blank" rel="noopener">Buka Google Sheets</a>
+        <a href="index.html" class="btn btn-garis">Lihat Katalog</a>
       </div>
+    </div>
 
-      <div class="baris-alat">
-        <input type="text" class="cari-admin" id="cariAdmin" placeholder="Cari produk..." />
-        <span id="jumlahProduk" style="font-size:13px;color:var(--warna-abu);"></span>
-      </div>
+    <div class="baris-alat">
+      <p style="font-size:13.5px;color:var(--warna-abu);line-height:1.7;">
+        Produk dikelola langsung di <b>Google Sheets</b>. Ubah data di spreadsheet lalu simpan &mdash;
+        perubahan langsung tampil di situs saat pengunjung membuka halaman. Foto dapat berupa
+        nama file di <code>images/produk/</code> atau URL gambar eksternal (pisahkan dengan koma).
+      </p>
+    </div>
 
-      <div class="tabel-admin">
-        <table>
-          <thead>
-            <tr>
-              <th>Foto</th>
-              <th>Nama</th>
-              <th>Kategori</th>
-              <th>Harga</th>
-              <th>Stok</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="tbodyProduk"></tbody>
-        </table>
-        <div class="kosong" id="adminKosong" style="display:none;">
-          <h3>Belum ada produk</h3>
-          <p>Klik "Tambah Produk" untuk mulai mengisi katalog.</p>
-        </div>
-      </div>
+    <div class="baris-alat" id="belumDiatur" style="display:none;background:#fdf0dd;box-shadow:none;">
+      <p style="font-size:13.5px;line-height:1.7;">
+        <b>Belum dihubungkan ke Google Sheets.</b> Cara menghubungkan:
+      </p>
+      <ol style="font-size:13px;line-height:1.8;padding-left:20px;color:var(--warna-teks);">
+        <li>Buat sheet di <b>sheets.new</b> dengan baris pertama: <code>id | nama | kategori | harga | stok | deskripsi | foto</code></li>
+        <li>File &rarr; Share &rarr; "Anyone with the link" &rarr; Viewer &rarr; salin link</li>
+        <li>Ubah link jadi <code>https://docs.google.com/spreadsheets/d/&lt;ID_SHEET&gt;/export?format=csv&amp;gid=0</code></li>
+        <li>Tempel ke <code>js/config.js</code> (baris <code>window.SHEET_URL = "..."</code>)</li>
+        <li>Commit &amp; push &mdash; selesai, update berikutnya cukup lewat spreadsheet</li>
+      </ol>
+    </div>
 
-      <div class="baris-alat" style="margin-top:20px;">
-        <p style="font-size:13px;color:var(--warna-abu);line-height:1.7;">
-          <strong style="color:var(--warna-teks);">Cara publish perubahan:</strong> klik <b>Download products.js</b>, ganti file
-          <code>data/products.js</code> di komputer Anda dengan hasil unduhan, lalu upload ulang seluruh folder ke hosting
-          (mis. Netlify via drag &amp; drop). Pengunjung langsung melihat produk terbaru.
-        </p>
+    <div class="tabel-admin">
+      <table>
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nama</th>
+            <th>Kategori</th>
+            <th>Harga</th>
+            <th>Stok</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyProduk"></tbody>
+      </table>
+      <div class="kosong" id="adminKosong" style="display:none;">
+        <h3>Belum ada produk</h3>
+        <p>Isi data di Google Sheets untuk menampilkan produk.</p>
       </div>
-    </section>
+    </div>
+
+    <div class="baris-alat" style="margin-top:20px;">
+      <span id="jumlahProduk" style="font-size:13px;color:var(--warna-abu);"></span>
+    </div>
   </main>
 
-  <!-- Modal form produk -->
-  <div class="lapisan" id="lapisanForm">
-    <div class="modal">
-      <h2 id="judulModal">Tambah Produk</h2>
-      <form id="formProduk">
-        <div class="medan">
-          <label for="pNama">Nama Produk *</label>
-          <input type="text" id="pNama" required placeholder="cth. Meja Makan Kayu Jati" />
+  <footer class="footer">
+    <div class="wadah">
+      <div class="footer-grid">
+        <div>
+          <h4>Irma Furniture</h4>
+          <p>Toko furniture keluarga yang menyediakan berbagai perabot rumah berkualitas. Pesan mudah via WhatsApp, kami bantu antar ke lokasi Anda.</p>
         </div>
-        <div class="kepala-form">
-          <div class="medan">
-            <label for="pKategori">Kategori *</label>
-            <select id="pKategori" required></select>
-          </div>
-          <div class="medan">
-            <label for="pHarga">Harga (Rp) *</label>
-            <input type="number" id="pHarga" required min="0" placeholder="cth. 1500000" />
-          </div>
-          <div class="medan">
-            <label for="pStok">Status Stok</label>
-            <select id="pStok">
-              <option value="Tersedia">Tersedia</option>
-              <option value="Terbatas">Terbatas</option>
-              <option value="Pesanan">Made by order</option>
-            </select>
-          </div>
+        <div>
+          <h4>Menu</h4>
+          <p><a href="index.html">Beranda</a></p>
+          <p><a href="kontak.html">Kontak &amp; Order</a></p>
+          <p><a href="admin.html">Kelola Katalog</a></p>
         </div>
-        <div class="medan">
-          <label>Foto Produk (minimal 1, isi nama file di folder images/produk)</label>
-          <div id="daftarFoto"></div>
-          <button type="button" class="btn btn-garis btn-kecil" id="btnTambahFoto" style="margin-top:8px;">+ Tambah kolom foto</button>
+        <div>
+          <h4>Hubungi Kami</h4>
+          <p><a href="https://wa.me/6285161996787" target="_blank" rel="noopener">WhatsApp: 0851-6199-6787</a></p>
         </div>
-        <div class="medan">
-          <label for="pDeskripsi">Deskripsi *</label>
-          <textarea id="pDeskripsi" required placeholder="Jelaskan bahan, ukuran, keunggulan produk..."></textarea>
-        </div>
-        <div class="tombol-modal">
-          <button type="button" class="btn btn-garis" id="btnBatal">Batal</button>
-          <button type="submit" class="btn btn-utama">Simpan Produk</button>
-        </div>
-      </form>
+      </div>
+      <div class="footer-bawah">&copy; <span id="tahun"></span> Irma Furniture. Semua hak dilindungi.</div>
     </div>
-  </div>
+  </footer>
 
+  <script src="js/config.js"></script>
   <script src="data/products.js"></script>
   <script src="js/ui.js"></script>
+  <script src="js/sheet.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>

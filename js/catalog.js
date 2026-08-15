@@ -1,5 +1,6 @@
 // ============================================================
 // KATALOG UTAMA - index.html
+// (memuat data dari Google Sheets bila diatur, fallback products.js)
 // ============================================================
 (function () {
   var semuaProduk = (window.PRODUCTS || []).slice().sort(function (a, b) {
@@ -15,6 +16,12 @@
   var kosong = document.getElementById("kosong");
   var keterangan = document.getElementById("keteranganKatalog");
   var pilKategori = document.getElementById("pilKategori");
+
+  function ambilSemua() {
+    semuaProduk = (window.PRODUCTS || []).slice().sort(function (a, b) {
+      return b.id - a.id;
+    });
+  }
 
   function daftarKategori() {
     var set = {};
@@ -65,6 +72,7 @@
   }
 
   function render() {
+    ambilSemua();
     var hasil = filterProduk();
     keterangan.textContent =
       kategoriAktif === "Semua"
@@ -123,6 +131,13 @@
 
   document.getElementById("tahun").textContent = new Date().getFullYear();
 
-  tampilKategori();
-  render();
+  function init() {
+    ambilSemua();
+    tampilKategori();
+    render();
+  }
+
+  init();
+  window.IRMA.setelahMuat(function () { init(); });
+  window.IRMA.muat();
 })();
