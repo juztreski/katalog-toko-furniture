@@ -18,4 +18,4 @@
 //
 // Jika dibiarkan kosong (""), situs otomatis memakai data/data/products.js.
 // ============================================================
-window.SHEET_URL = "";
+window.SHEET_URL = "https://docs.google.com/spreadsheets/d/1PgCCfjOqXajMTNKzekpuixp2-KUI6uuVTnkOjwGggMs/export?format=csv&gid=0";
