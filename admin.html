@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Irma Furniture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wadah nav">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20v-7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7" />
+            <path d="M4 20h16" />
+            <path d="M7 11V5h10v6" />
+            <path d="M9 5l-1-2M12 5V3M15 5l1-2" />
+          </svg>
+        </span>
+        <span class="brand-nama">Irma Furniture<small>Panel Admin</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Lihat Katalog</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="admin.html" class="aktif">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wadah isi-admin">
+
+    <!-- Login -->
+    <section class="login-kartu" id="kartuLogin">
+      <h2>Login Admin</h2>
+      <p>Masukkan kata sandi untuk mengelola produk.</p>
+      <div class="pesan-salah" id="pesanSalah">Kata sandi salah. Silakan coba lagi.</div>
+      <form id="formLogin">
+        <input type="password" id="inputPassword" placeholder="Kata sandi" autocomplete="current-password" />
+        <button type="submit" class="btn btn-utama">Masuk</button>
+      </form>
+    </section>
+
+    <!-- Panel -->
+    <section id="panelAdmin" style="display:none;">
+      <div class="kepala-admin">
+        <h1>Kelola Produk</h1>
+        <div class="tombol-pakai">
+          <button type="button" class="btn btn-utama" id="btnTambah">+ Tambah Produk</button>
+          <button type="button" class="btn btn-garis" id="btnDownload">Download products.js</button>
+          <button type="button" class="btn btn-garis btn-kecil" id="btnKeluar">Keluar</button>
+        </div>
+      </div>
+
+      <div class="baris-alat">
+        <input type="text" class="cari-admin" id="cariAdmin" placeholder="Cari produk..." />
+        <span id="jumlahProduk" style="font-size:13px;color:var(--warna-abu);"></span>
+      </div>
+
+      <div class="tabel-admin">
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nama</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Stok</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyProduk"></tbody>
+        </table>
+        <div class="kosong" id="adminKosong" style="display:none;">
+          <h3>Belum ada produk</h3>
+          <p>Klik "Tambah Produk" untuk mulai mengisi katalog.</p>
+        </div>
+      </div>
+
+      <div class="baris-alat" style="margin-top:20px;">
+        <p style="font-size:13px;color:var(--warna-abu);line-height:1.7;">
+          <strong style="color:var(--warna-teks);">Cara publish perubahan:</strong> klik <b>Download products.js</b>, ganti file
+          <code>data/products.js</code> di komputer Anda dengan hasil unduhan, lalu upload ulang seluruh folder ke hosting
+          (mis. Netlify via drag &amp; drop). Pengunjung langsung melihat produk terbaru.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal form produk -->
+  <div class="lapisan" id="lapisanForm">
+    <div class="modal">
+      <h2 id="judulModal">Tambah Produk</h2>
+      <form id="formProduk">
+        <div class="medan">
+          <label for="pNama">Nama Produk *</label>
+          <input type="text" id="pNama" required placeholder="cth. Meja Makan Kayu Jati" />
+        </div>
+        <div class="kepala-form">
+          <div class="medan">
+            <label for="pKategori">Kategori *</label>
+            <select id="pKategori" required></select>
+          </div>
+          <div class="medan">
+            <label for="pHarga">Harga (Rp) *</label>
+            <input type="number" id="pHarga" required min="0" placeholder="cth. 1500000" />
+          </div>
+          <div class="medan">
+            <label for="pStok">Status Stok</label>
+            <select id="pStok">
+              <option value="Tersedia">Tersedia</option>
+              <option value="Terbatas">Terbatas</option>
+              <option value="Pesanan">Made by order</option>
+            </select>
+          </div>
+        </div>
+        <div class="medan">
+          <label>Foto Produk (minimal 1, isi nama file di folder images/produk)</label>
+          <div id="daftarFoto"></div>
+          <button type="button" class="btn btn-garis btn-kecil" id="btnTambahFoto" style="margin-top:8px;">+ Tambah kolom foto</button>
+        </div>
+        <div class="medan">
+          <label for="pDeskripsi">Deskripsi *</label>
+          <textarea id="pDeskripsi" required placeholder="Jelaskan bahan, ukuran, keunggulan produk..."></textarea>
+        </div>
+        <div class="tombol-modal">
+          <button type="button" class="btn btn-garis" id="btnBatal">Batal</button>
+          <button type="submit" class="btn btn-utama">Simpan Produk</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="data/products.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

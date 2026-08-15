@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" fill="#F3E9DC"/>
+  <ellipse cx="300" cy="382" rx="180" ry="18" fill="#E4D6C3"/>
+  <rect x="210" y="242" width="180" height="28" rx="8" fill="#C9A066"/>
+  <rect x="200" y="152" width="26" height="122" rx="10" fill="#B8895A"/>
+  <rect x="374" y="152" width="26" height="122" rx="10" fill="#B8895A"/>
+  <rect x="214" y="118" width="172" height="82" rx="18" fill="#C9A066"/>
+  <rect x="216" y="270" width="24" height="48" fill="#8F6A3F"/>
+  <rect x="360" y="270" width="24" height="48" fill="#8F6A3F"/>
+  <path d="M214 160 q86 -34 172 0 q0 30 0 30 q-86 -30 -172 0 Z" fill="#D9B57F"/>
+  <text x="300" y="425" font-family="sans-serif" font-size="18" fill="#8a8178" text-anchor="middle">Kursi Tamu Rotan</text>
+</svg>

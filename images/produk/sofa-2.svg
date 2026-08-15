@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" fill="#EFE6D8"/>
+  <ellipse cx="300" cy="382" rx="220" ry="20" fill="#E0D2BD"/>
+  <rect x="160" y="245" width="280" height="105" rx="24" fill="#45707A"/>
+  <rect x="118" y="212" width="52" height="142" rx="18" fill="#3A626C"/>
+  <rect x="430" y="212" width="52" height="142" rx="18" fill="#3A626C"/>
+  <rect x="160" y="188" width="280" height="64" rx="20" fill="#5B8790"/>
+  <rect x="252" y="350" width="20" height="34" fill="#5A4632"/>
+  <rect x="328" y="350" width="20" height="34" fill="#5A4632"/>
+  <rect x="182" y="262" width="110" height="80" rx="16" fill="#E07B39"/>
+  <rect x="308" y="262" width="110" height="80" rx="16" fill="#2F5256"/>
+  <text x="300" y="425" font-family="sans-serif" font-size="18" fill="#8a8178" text-anchor="middle">Sofa - Detail Kursi</text>
+</svg>

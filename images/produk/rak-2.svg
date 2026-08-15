@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" fill="#EFE6D8"/>
+  <ellipse cx="300" cy="385" rx="180" ry="14" fill="#E0D2BD"/>
+  <rect x="165" y="125" width="270" height="260" rx="8" fill="#7C4A21"/>
+  <rect x="174" y="134" width="252" height="242" rx="4" fill="#966031"/>
+  <rect x="174" y="212" width="252" height="8" fill="#6B3F1C"/>
+  <rect x="174" y="290" width="252" height="8" fill="#6B3F1C"/>
+  <rect x="190" y="150" width="54" height="52" rx="3" fill="#45707A"/>
+  <rect x="252" y="150" width="60" height="52" rx="3" fill="#E07B39"/>
+  <rect x="320" y="150" width="46" height="52" rx="3" fill="#7FA05A"/>
+  <rect x="190" y="230" width="58" height="50" rx="3" fill="#B8895A"/>
+  <rect x="256" y="230" width="48" height="50" rx="3" fill="#3E6B70"/>
+  <rect x="190" y="308" width="50" height="52" rx="3" fill="#C9A066"/>
+  <rect x="248" y="308" width="56" height="52" rx="3" fill="#5B8790"/>
+  <rect x="312" y="308" width="46" height="52" rx="3" fill="#D9534F"/>
+  <text x="300" y="425" font-family="sans-serif" font-size="18" fill="#8a8178" text-anchor="middle">Rak Buku - Tampak Penuh</text>
+</svg>

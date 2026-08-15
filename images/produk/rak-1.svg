@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" fill="#F3E9DC"/>
+  <ellipse cx="300" cy="385" rx="190" ry="16" fill="#E4D6C3"/>
+  <rect x="150" y="120" width="300" height="266" rx="8" fill="#8B5A2B"/>
+  <rect x="160" y="130" width="280" height="246" rx="4" fill="#A06A36"/>
+  <rect x="160" y="210" width="280" height="8" fill="#7A4E24"/>
+  <rect x="160" y="290" width="280" height="8" fill="#7A4E24"/>
+  <rect x="178" y="146" width="60" height="54" rx="3" fill="#3E6B70"/>
+  <rect x="246" y="146" width="48" height="54" rx="3" fill="#E07B39"/>
+  <rect x="302" y="146" width="56" height="54" rx="3" fill="#7FA05A"/>
+  <rect x="366" y="146" width="56" height="54" rx="3" fill="#B8895A"/>
+  <rect x="178" y="226" width="52" height="54" rx="3" fill="#45707A"/>
+  <rect x="238" y="226" width="58" height="54" rx="3" fill="#C9A066"/>
+  <rect x="304" y="226" width="48" height="54" rx="3" fill="#D9534F"/>
+  <rect x="178" y="306" width="60" height="54" rx="3" fill="#8F6A3F"/>
+  <rect x="246" y="306" width="50" height="54" rx="3" fill="#5B8790"/>
+  <text x="300" y="425" font-family="sans-serif" font-size="18" fill="#8a8178" text-anchor="middle">Rak Buku Minimalis</text>
+</svg>

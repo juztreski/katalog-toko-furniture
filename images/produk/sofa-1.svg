@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+  <rect width="600" height="450" fill="#F3E9DC"/>
+  <ellipse cx="300" cy="382" rx="235" ry="22" fill="#E4D6C3"/>
+  <rect x="150" y="240" width="300" height="110" rx="22" fill="#3E6B70"/>
+  <rect x="105" y="205" width="55" height="150" rx="20" fill="#35605A"/>
+  <rect x="440" y="205" width="55" height="150" rx="20" fill="#35605A"/>
+  <rect x="150" y="180" width="300" height="70" rx="20" fill="#4A8186"/>
+  <rect x="220" y="350" width="22" height="34" fill="#5A4632"/>
+  <rect x="358" y="350" width="22" height="34" fill="#5A4632"/>
+  <rect x="172" y="260" width="120" height="82" rx="14" fill="#2F5256"/>
+  <rect x="308" y="260" width="120" height="82" rx="14" fill="#2F5256"/>
+  <text x="300" y="425" font-family="sans-serif" font-size="18" fill="#8a8178" text-anchor="middle">Sofa 3 Seater</text>
+</svg>

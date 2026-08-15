@@ -1,0 +1,10 @@
+# Sistem / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Log & sementara
+*.log
+node_modules/
